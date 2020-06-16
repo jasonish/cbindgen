@@ -15,6 +15,7 @@ addons:
 script:
   - export CC=gcc-8
   - export CXX=g++-8
+  - echo $TRAVIS_RUST_VERSION
   - cargo fmt --all -- --check
   - cargo build --verbose
   - cargo build --verbose --no-default-features
