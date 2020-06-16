@@ -16,7 +16,7 @@ script:
   - export CC=gcc-8
   - export CXX=g++-8
   - echo $TRAVIS_RUST_VERSION
-  - cargo fmt --all -- --check
+  - test "$TRAVIS_RUST_VERSION" = "nightly" && cargo fmt --all -- --check || true
   - cargo build --verbose
   - cargo build --verbose --no-default-features
   - CBINDGEN_TEST_VERIFY=1 cargo test --verbose
